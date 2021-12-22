@@ -82,10 +82,11 @@ export default ColorPage;
 export async function getStaticPaths() {
 	const colors = await getColorsData();
 
-	const paths = colors.map(({ name }) => {
+	const paths = colors.map(({ name, colorGroup }) => {
 		return {
 			params: {
 				color: name,
+				group: colorGroup,
 			},
 		};
 	});

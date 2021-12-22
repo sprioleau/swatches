@@ -2,11 +2,11 @@ import React from "react";
 import Link from "next/link";
 
 const ColorSwatch = ({ color }) => {
-	const { name, prettyName, hex, rgbString } = color;
+	const { name, prettyName, hex, rgbString, colorGroup } = color;
 
 	return (
 		<Link
-			href={`colors/${name}`}
+			href={`${colorGroup}/${name}`}
 			className="color-swatch"
 			role="button"
 			tabIndex={0}

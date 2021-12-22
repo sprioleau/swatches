@@ -1,0 +1,31 @@
+.color-group {
+  &__label {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  a.link-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__link {
+    height: 100%;
+    padding: 1.5rem;
+  }
+  
+  .arrow {
+    font-size: 3rem;
+    align-self: flex-end;
+
+    &.back {
+      align-self: flex-start;
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover {
+    @include shadow-hover;
+  }
+}

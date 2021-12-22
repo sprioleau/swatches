@@ -5,5 +5,6 @@ export { default as PageWrapper } from "./PageWrapper";
 export { default as Main } from "./Main";
 export { default as ColorGrid } from "./ColorGrid";
 export { default as ColorSwatch } from "./ColorSwatch";
+export { default as ColorGroup } from "./ColorGroup";
 export { default as Arrow } from "./Arrow";
 export { default as Footer } from "./Footer";

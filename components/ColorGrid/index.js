@@ -1,9 +1,10 @@
 /* eslint-disable no-param-reassign */
 import React from "react";
 import ColorSwatch from "../ColorSwatch";
-import Arrow from "../Arrow";
+import ColorGroup from "../ColorGroup";
 import useStore from "../../store";
 import { selectColors, selectSetColors } from "../../store/selectors";
+import { getColorsByGroup } from "../../utils";
 
 const ColorGrid = (props) => {
 	const [activeColor, setActiveColor] = React.useState(null);
@@ -14,24 +15,20 @@ const ColorGrid = (props) => {
 		setColors(props.colors);
 	}, [props.colors, setColors]);
 
-	const displayedColors = colors.reduce((result, color) => {
-		if (!result[color.colorGroup]) {
-			result[color.colorGroup] = [color];
-		} else {
-			result[color.colorGroup] = [...result[color.colorGroup], color];
-		}
-		return result;
-	}, {});
+	const colorsByGroup = getColorsByGroup(colors);
 
 	return (
 		<div className="color-grid">
 			<ul className="color-grid__list">
-				{Object.entries(displayedColors).map(([colorGroupLabel, colorsInGroup]) => {
+				{Object.entries(colorsByGroup).map(([colorGroupLabel, colorsInGroup]) => {
 					return (
 						<React.Fragment key={colorGroupLabel}>
 							<li className="color-grid__list-item color-group">
-								<h3 className="color-grid">{colorGroupLabel}</h3>
-								<Arrow color={colorsInGroup[Math.floor(colorsInGroup.length / 1.7)].hex} />
+								<ColorGroup
+									groupLabel={colorGroupLabel}
+									colorsInGroup={colorsInGroup}
+									includeBackButton={props.includeBackButton}
+								/>
 							</li>
 							{colorsInGroup.map((color) => (
 								<li key={color.name} className="color-grid__list-item">
@@ -42,7 +39,7 @@ const ColorGrid = (props) => {
 					);
 				})}
 				{Array.from(Array(16).keys()).map((key) => (
-					<li key={key} className="color-grid__list-item" style={{ visibility: "hidden" }} />
+					<li key={key} className="color-grid__list-item hidden" />
 				))}
 			</ul>
 		</div>

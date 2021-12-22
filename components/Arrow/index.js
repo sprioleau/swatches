@@ -1,11 +1,10 @@
 import React from "react";
 
-const Arrow = ({ color = null, variant = "filled" }) => {
+const Arrow = ({ color = null, variant = "filled", back = false }) => {
 	return (
-		// <div>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			className="arrow"
+			className={`arrow ${back ? "back" : ""}`.trim()}
 			viewBox="0 0 100 100"
 			width="1em"
 			height="1em"
@@ -23,7 +22,6 @@ const Arrow = ({ color = null, variant = "filled" }) => {
 				/>
 			)}
 		</svg>
-		// </div>
 	);
 };
 
