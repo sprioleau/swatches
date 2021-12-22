@@ -1,35 +1,24 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from "axios";
 import Image from "next/image";
-import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { Blurhash } from "react-blurhash";
 import pickRandom from "../../utils/pickRandom";
 import CONFIG from "../../config";
-import { selectColorData } from "../../store/selectors";
-import useStore from "../../store";
 import { getColorsData, getRandomQueryColor } from "../../utils";
 import { PageWrapper } from "../../components";
 
-const ColorPage = ({ photo }) => {
-	const { query } = useRouter();
-	const { color } = query;
-
+const ColorPage = ({ photo, color }) => {
 	const [isLoading, setIsLoading] = React.useState(true);
 
 	const handleSetIsLoading = (loading) => setIsLoading(loading);
 
-	const colorData = useStore((state) => selectColorData(state, color));
-
-	if (!colorData) return null;
-
-	const { prettyName, colorGroup, hex, rgbString } = colorData;
+	const { prettyName, colorGroup, hex, rgbString } = color;
 
 	return (
 		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup} displayNav={false} displayFooter={false}>
-			<div className="color-page" style={{ backgroundColor: color ?? "var(--ui-bg)" }}>
+			<div className="color-page" style={{ backgroundColor: color.hex }}>
 				<div className="color-page__image-wrapper">
 					<div className="color-page__image">
 						{isLoading && (
@@ -60,16 +49,24 @@ const ColorPage = ({ photo }) => {
 								<p className="color-page__label">RGB values</p>
 							</li>
 						</ul>
-						<Link href="/">
-							<a className="no-hover color-page__back-button">
-								<button type="button">
+						<div className="button-row">
+							<Link href="/">
+								<a className="color-page__link">
 									<span className="icon">
 										<BsArrowLeft />
 									</span>
-									<span>All swatches</span>
-								</button>
-							</a>
-						</Link>
+									<span>All colors</span>
+								</a>
+							</Link>
+							<Link href={`/${colorGroup}`}>
+								<a className="color-page__link">
+									<span>{colorGroup}</span>
+									<span className="icon">
+										<BsArrowRight />
+									</span>
+								</a>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -115,6 +112,9 @@ export const getStaticProps = async ({ params }) => {
 	const { data: photos } = await axios.get(requestUrl);
 
 	return {
-		props: { photo: pickRandom(photos.results) },
+		props: {
+			color: colors.find((c) => c.name === color),
+			photo: pickRandom(photos.results),
+		},
 	};
 };

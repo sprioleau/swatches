@@ -46,7 +46,8 @@
 
   &__details-wrapper {
     max-width: 550px;
-    width: 65%;
+    width: 85%;
+
   }
 
   &__header {
@@ -93,6 +94,20 @@
     font-size: 0.25em;
     font-family: monospace;
     color: rgba(var(--ui-text-rgb), 0.6);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.4em;
+    padding: 0 0.5em;
+    padding-left: 0;
+
+    &:not(:first-child) {
+      padding-left: 0.5em;
+      padding-right: 0;
+    }
   }
 }
 

@@ -1,20 +1,9 @@
-/* eslint-disable no-param-reassign */
 import React from "react";
 import ColorSwatch from "../ColorSwatch";
 import ColorGroup from "../ColorGroup";
-import useStore from "../../store";
-import { selectColors, selectSetColors } from "../../store/selectors";
 import { getColorsByGroup } from "../../utils";
 
-const ColorGrid = (props) => {
-	const [activeColor, setActiveColor] = React.useState(null);
-	const colors = useStore(selectColors);
-	const setColors = useStore(selectSetColors);
-
-	React.useEffect(() => {
-		setColors(props.colors);
-	}, [props.colors, setColors]);
-
+const ColorGrid = ({ colors, includeBackButton }) => {
 	const colorsByGroup = getColorsByGroup(colors);
 
 	return (
@@ -27,12 +16,12 @@ const ColorGrid = (props) => {
 								<ColorGroup
 									groupLabel={colorGroupLabel}
 									colorsInGroup={colorsInGroup}
-									includeBackButton={props.includeBackButton}
+									includeBackButton={includeBackButton}
 								/>
 							</li>
 							{colorsInGroup.map((color) => (
 								<li key={color.name} className="color-grid__list-item">
-									<ColorSwatch color={color} activeColor={activeColor} setActiveColor={setActiveColor} />
+									<ColorSwatch color={color} />
 								</li>
 							))}
 						</React.Fragment>
