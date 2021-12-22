@@ -11,6 +11,8 @@
 
   &__image-wrapper {
     @include center;
+    flex-direction: column;
+    padding: 1.5rem;
   }
 
   &__image {
@@ -18,17 +20,30 @@
     width: 65%;
     max-width: 400px;
     aspect-ratio: 4 / 5;
-    border: 1vw solid var(--white);
+    border: clamp(0.5rem, 1vw, 1.5rem) solid var(--white);
     overflow: hidden;
     position: relative;
     background-color: var(--white);
-    margin: 2rem;
+    margin: 1rem;
+    user-select: none;
     
     img {
       width: 100%;
       height: auto;
       object-fit: cover;
       object-position: center;
+    }
+  }
+
+  &__attribution {
+    text-align: center;
+    font-size: 0.9em;
+    font-family: monospace;
+    padding: 0.5em 2em;
+    background-color: var(--white);
+
+    a {
+      font-weight: 700;
     }
   }
 
@@ -39,15 +54,21 @@
     align-items: center;
     flex: 1 1 50%;
     background-color: var(--white);
-    padding: 3rem;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(1.5rem, 5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     width: 100%;
   }
 
   &__details-wrapper {
     max-width: 550px;
     width: 85%;
+  }
 
+  &__logo {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
   }
 
   &__header {
@@ -91,7 +112,7 @@
   }
   
   &__label {
-    font-size: 0.25em;
+    font-size: clamp(0.35em, 0.35em, 0.4em);
     font-family: monospace;
     color: rgba(var(--ui-text-rgb), 0.6);
   }

@@ -7,19 +7,29 @@ import { Blurhash } from "react-blurhash";
 import pickRandom from "../../utils/pickRandom";
 import CONFIG from "../../config";
 import { getColorsData, getRandomQueryColor } from "../../utils";
-import { PageWrapper } from "../../components";
+import { Logo, PageWrapper } from "../../components";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const ColorPage = ({ photo, color }) => {
 	const [isLoading, setIsLoading] = React.useState(true);
+
+	const { windowSize } = useWindowSize();
 
 	const handleSetIsLoading = (loading) => setIsLoading(loading);
 
 	const { prettyName, colorGroup, hex, rgbString } = color;
 
+	const appName = "Swatches";
+
 	return (
-		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup} displayNav={false} displayFooter={false}>
+		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup} displayNav={windowSize <= 750} displayFooter={false}>
 			<div className="color-page" style={{ backgroundColor: color.hex }}>
 				<div className="color-page__image-wrapper">
+					<p className="color-page__attribution">
+						Photo by{" "}
+						<a href={`${photo.user.links.html}?utm_source=${appName}&utm_medium=referral`}>{photo.user.name}</a> on{" "}
+						<a href={`https://unsplash.com/?utm_source=${appName}&utm_medium=referral`}>Unsplash</a>
+					</p>
 					<div className="color-page__image">
 						{isLoading && (
 							<Blurhash hash={photo.blur_hash} width={400} height={500} resolutionX={32} resolutionY={32} punch={1} />
@@ -29,7 +39,6 @@ const ColorPage = ({ photo, color }) => {
 							alt={photo.alt_description}
 							layout="fill"
 							onLoadingComplete={() => handleSetIsLoading(false)}
-							style={{ opacity: isLoading ? 0 : 1 }}
 						/>
 					</div>
 				</div>
@@ -38,6 +47,11 @@ const ColorPage = ({ photo, color }) => {
 						<header className="color-page__header">
 							<h1 className="color-page__name">{prettyName}</h1>
 							<h2 className="color-page__color-group">Collection: {colorGroup}</h2>
+							{windowSize > 750 && (
+								<div className="color-page__logo">
+									<Logo />
+								</div>
+							)}
 						</header>
 						<ul className="color-page__color-values">
 							<li className="color-page__color-value">
