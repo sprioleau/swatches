@@ -1,0 +1,8 @@
+.header {
+  position: relative;
+  
+  &__title {
+    position: absolute;
+    left: -9999px;
+  }
+}

@@ -1,0 +1,115 @@
+.color-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+
+  & > * {
+    flex-basis: 50%;
+    min-height: 100vh;
+  }
+
+  &__image-wrapper {
+    @include center;
+  }
+
+  &__image {
+    @include shadow-large;
+    width: 65%;
+    max-width: 400px;
+    aspect-ratio: 4 / 5;
+    border: 1vw solid var(--white);
+    overflow: hidden;
+    position: relative;
+    background-color: var(--white);
+    margin: 2rem;
+    
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 50%;
+    background-color: var(--white);
+    padding: 3rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    width: 100%;
+  }
+
+  &__details-wrapper {
+    max-width: 550px;
+    width: 65%;
+  }
+
+  &__header {
+    margin-bottom: 0.4em;
+  }
+
+  &__name {
+    letter-spacing: -1px;
+    font-size: 1em;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    position: relative;
+
+    &::after{
+      content: url("/images/smile.svg");
+      position: absolute;
+      width: 0.4em;
+      height: 0.4em;
+      margin-left: 0.05em;
+    }
+  }
+
+  &__color-group {
+    font-size: 0.5em;
+    font-weight: normal;
+    color: rgba(var(--ui-text-rgb), 0.6);
+  }
+
+  &__color-values {
+    margin-bottom: 0.5em;
+  }
+  
+  &__color-value {
+    margin-bottom: 0.2em;
+  }
+  
+  &__value {
+    font-size: 0.5em;
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  &__label {
+    font-size: 0.25em;
+    font-family: monospace;
+    color: rgba(var(--ui-text-rgb), 0.6);
+  }
+}
+
+@include md {
+  .color-page {
+    flex-direction: column;
+
+    & > * {
+      min-height: 50vh;
+    }
+
+    & > &__details {
+      min-height: unset;
+    }
+
+    &__details-wrapper {
+      width: 100%;
+    }
+  }
+}

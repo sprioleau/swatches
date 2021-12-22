@@ -1,0 +1,7 @@
+.main {
+  margin-top: var(--nav-height);
+  
+  &.hide-nav {
+    margin-top: 0;
+  }
+}

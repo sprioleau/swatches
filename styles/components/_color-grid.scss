@@ -1,0 +1,59 @@
+.color-grid {
+  --margin: 1rem;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: var(--margin);
+  }
+  
+  &__list-item {
+    @include shadow;
+    @include transition;
+    flex: 1 1 180px;
+    justify-content: center;
+    background-color: var(--white);
+    margin: var(--margin);
+    cursor: pointer;
+
+    &.active {
+      .color-grid__swatch {
+        border: 1px solid var(--white);
+      }
+    }
+    
+    &:hover {
+      @include shadow-hover;
+      transform: scale(1.03);
+
+      .color-grid__hex {
+        transform: translateX(0);
+      }
+    }
+
+    &.color-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      font-size: 2rem;
+
+      .arrow {
+        font-size: 150%;
+        align-self: flex-end;
+      }
+
+      &:hover {
+        transform: none;
+        box-shadow:
+          0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+          0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+          0 12.5px 10px -3px rgba(0, 0, 0, 0.06);
+      }
+    }
+  }
+  
+  &__group-title {
+    hyphens: auto;
+  }
+}

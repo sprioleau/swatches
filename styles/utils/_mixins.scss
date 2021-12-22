@@ -1,0 +1,62 @@
+// Breakpoints
+$bp-x-small: 350px;
+$bp-small: 576px;
+$bp-medium: 750px;
+$bp-large: 1200px;
+
+@mixin xsm {
+  @media (max-width: #{$bp-x-small}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: #{$bp-small}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: #{$bp-medium}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: #{$bp-large}) {
+    @content;
+  }
+}
+
+@mixin transition($property: all, $duration: 0.3s) {
+  transition: $property $duration cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin shadow {
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px -3px rgba(0, 0, 0, 0.06);
+}
+
+@mixin shadow-large {
+  box-shadow: 
+    rgba(36, 20, 12, 0.15) 0 2px 2px,
+    rgba(36, 20, 12, 0.15) 0 4px 4px,
+    rgba(36, 20, 12, 0.15) 0 8px 8px,
+    rgba(36, 20, 12, 0.15) 0 16px 16px,
+    rgba(36, 20, 12, 0.15) 0 32px 32px,
+    rgba(36, 20, 12, 0.15) 0 64px 64px;
+}
+
+@mixin shadow-hover {
+  box-shadow: 
+    0 14px 35px -10px rgba(0,0,0,0.1), 
+    0 16px 15px -5px rgba(0,0,0,0.15);
+}
