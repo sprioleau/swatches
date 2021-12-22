@@ -34,15 +34,7 @@ button,
   }
 
   &:active {
-    transform: translate(0.5rem, 0.5rem);
-  }
-
-  &:hover::after {
-    transform: translate(0.75rem, 0.75rem);
-  }
-
-  &:active::after {
-    transform: translate(0, 0);
+    transform: translateY(0.5rem);
   }
 
   &:not(:last-child) {

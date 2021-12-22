@@ -78,6 +78,14 @@ a, .a {
     color: var(--ui-text-hover);
   }
 
+  &.link-wrapper {
+    display: block;
+
+    &::after {
+      display: none;
+    }
+  }
+
   &:hover::after {
     --scaleX: 1;
   }
