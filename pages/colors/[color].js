@@ -8,7 +8,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Blurhash } from "react-blurhash";
 import pickRandom from "../../utils/pickRandom";
 import CONFIG from "../../config";
-import { selectSelectedColor } from "../../store/selectors";
+import { selectColorData } from "../../store/selectors";
 import useStore from "../../store";
 import { getColorsData, getRandomQueryColor } from "../../utils";
 import { PageWrapper } from "../../components";
@@ -21,11 +21,11 @@ const ColorPage = ({ photo }) => {
 
 	const handleSetIsLoading = (loading) => setIsLoading(loading);
 
-	const selectedColor = useStore(selectSelectedColor);
+	const colorData = useStore((state) => selectColorData(state, color));
 
-	if (!selectedColor) return null;
+	if (!colorData) return null;
 
-	const { prettyName, colorGroup, hex, rgbString } = selectedColor;
+	const { prettyName, colorGroup, hex, rgbString } = colorData;
 
 	return (
 		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup} displayNav={false} displayFooter={false}>
