@@ -11,7 +11,6 @@ import { PageWrapper, Smile } from "../../components";
 import lowerToSentnceCase from "../../utils/lowerToSentenceCase";
 
 const ColorPage = ({ photo, color }) => {
-	console.log("photo:", photo);
 	const { prettyName, colorGroup, hex, rgbString } = color;
 	const [isLoading, setIsLoading] = React.useState(true);
 	const groupTitle = lowerToSentnceCase(colorGroup);
