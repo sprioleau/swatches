@@ -1,0 +1,15 @@
+[data-theme="dark"] {
+  --ui-bg-rgb: 8, 32, 50;
+  --ui-bg: rgb(var(--ui-bg-rgb));
+  // --ui-bg: #082032;
+  --ui-bg-alt-rgb: 44, 57, 75;
+  --ui-bg-alt: rgb(var(--ui-bg-alt-rgb));
+  // --ui-bg-alt: #2C394B;
+  --ui-text-rgb: 245, 243, 243;
+  --ui-text: rgb(var(--ui-text-rgb));
+  // --ui-text: #f5f3f3;
+  --ui-text-hover: #ffffff;
+  --ui-accent-1-rgb: 255, 76, 41;
+  --ui-accent-1: rgb(var(--ui-accent-1-rgb));
+  // --ui-accent-1: #FF4C29;
+}

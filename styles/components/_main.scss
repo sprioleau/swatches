@@ -1,7 +1,8 @@
 .main {
   margin-top: var(--nav-height);
+  width: 100%;
   
-  &.hide-nav {
-    margin-top: 0;
-  }
+  // &.hide-nav {
+  //   margin-top: 0;
+  // }
 }

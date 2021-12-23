@@ -4,12 +4,10 @@ import getColorsData from "../utils/getColorsData";
 
 const Home = ({ colors }) => {
 	return (
-		<div className="app">
-			<PageWrapper pageTitle="Swatches">
-				<Header />
-				<ColorGrid colors={colors} />
-			</PageWrapper>
-		</div>
+		<PageWrapper pageTitle="Swatches">
+			<Header />
+			<ColorGrid colors={colors} />
+		</PageWrapper>
 	);
 };
 

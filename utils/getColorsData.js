@@ -22,7 +22,7 @@ const getColorsData = async () => {
 					const [r, g, b] = rgb.split(", ").map((l) => parseInt(l, 10));
 
 					const color = {
-						colorGroup,
+						colorGroup: colorGroup.toLowerCase(),
 						name: name.toLowerCase(),
 						prettyName: camelToTitleCase(name),
 						hex,

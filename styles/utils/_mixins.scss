@@ -63,4 +63,10 @@ $bp-large: 1200px;
 
 @mixin ff-body {
   font-family: Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+@mixin ff-mono {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
 }

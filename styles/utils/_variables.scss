@@ -1,20 +1,11 @@
 :root {
-  --ui-bg: #eeebe1;
-  --white: #f7f7f7;
-  --red: #df6464;
-  --green: #72b172;
-  --blue: #5151df;
-  --white-rgb: 247, 247, 247;
-  --ui-bg-rgb: 238, 235, 225;
-  --ui-text: #3b3b3b;
-  --ui-text-rgb: 59, 59, 59;
-  --ui-text-hover: #202020;
-  --ui-accent-1: #202020;
-  --ui-accent-1-rgb: 32, 32, 32;
   --max-width: 1200px;
   --nav-padding: 0px;
   --logo-desired-height: 50px;
   --logo-padding: 1rem;
   --logo-height: calc(var(--logo-desired-height) + 2 * var(--logo-padding));
   --nav-height: calc(var(--logo-height) + 2 * var(--nav-padding));
+  --footer-text-size: 0.85rem;
+  --footer-padding: 1rem;
+  --footer-height: calc(var(--footer-text-size) + 2 * var(--footer-padding));
 }

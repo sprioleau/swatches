@@ -28,7 +28,7 @@ button,
   &:hover {
     @include shadow-hover;
     color: var(--ui-accent-1);
-    background-color: var(--white);
+    background-color: var(--ui-bg-alt);
     transform: translateY(-5px);
     cursor: pointer;
   }

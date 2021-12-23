@@ -1,8 +1,10 @@
 .footer {
-  padding: 1rem;
+  padding: var(--footer-padding);
+  position: relative;
+  height: var(--footer-height);
 
   &__text {
-    font-size: 1em;
-    font-family: monospace;
+    @include ff-mono;
+    font-size: var(--footer-text-size);
   }
 }

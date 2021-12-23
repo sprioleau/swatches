@@ -1,12 +1,16 @@
 .color-page {
+  --page-height: calc(100vh - var(--nav-height) - var(--footer-height));
+
   display: flex;
-  min-height: 100vh;
+  // min-height: 100vh;
+  height: var(--page-height);
   width: 100%;
   position: relative;
 
   & > * {
     flex-basis: 50%;
-    min-height: 100vh;
+    // min-height: 100vh;
+    height: var(--page-height);
   }
 
   &__image-wrapper {
@@ -20,10 +24,10 @@
     width: 65%;
     max-width: 400px;
     aspect-ratio: 4 / 5;
-    border: clamp(0.5rem, 1vw, 1.5rem) solid var(--white);
+    border: clamp(0.5rem, 1vw, 1.5rem) solid var(--ui-bg-alt);
     overflow: hidden;
     position: relative;
-    background-color: var(--white);
+    background-color: var(--ui-bg-alt);
     margin: 1rem;
     user-select: none;
     
@@ -36,11 +40,11 @@
   }
 
   &__attribution {
+    @include ff-mono;
     text-align: center;
     font-size: 0.9em;
-    font-family: monospace;
     padding: 0.5em 2em;
-    background-color: var(--white);
+    background-color: var(--ui-bg-alt);
 
     a {
       font-weight: 700;
@@ -53,7 +57,7 @@
     justify-content: center;
     align-items: center;
     flex: 1 1 50%;
-    background-color: var(--white);
+    background-color: var(--ui-bg-alt);
     padding: clamp(1.5rem, 5vw, 3rem);
     font-size: clamp(2rem, 5vw, 4rem);
     width: 100%;
@@ -62,13 +66,6 @@
   &__details-wrapper {
     max-width: 550px;
     width: 85%;
-  }
-
-  &__logo {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 200px;
   }
 
   &__header {
@@ -81,14 +78,10 @@
     line-height: 1;
     margin-bottom: 0.3rem;
     position: relative;
+  }
 
-    &::after{
-      content: url("/images/smile.svg");
-      position: absolute;
-      width: 0.4em;
-      height: 0.4em;
-      margin-left: 0.05em;
-    }
+  .smile-icon {
+    font-size: 0.35em;
   }
 
   &__color-group {

@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import Smile from "../Smile";
 
 const ColorSwatch = ({ color }) => {
 	const { name, prettyName, hex, rgbString, colorGroup } = color;
 
 	return (
 		<Link
-			href={`${colorGroup}/${name}`}
+			href={`/${colorGroup}/${name}`}
 			className="color-swatch"
 			role="button"
 			tabIndex={0}
@@ -22,7 +23,12 @@ const ColorSwatch = ({ color }) => {
 					style={{ backgroundColor: hex }}
 				/>
 				<div className="color-swatch__details">
-					<h3 className="color-swatch__label">SWATCH</h3>
+					<h3 className="color-swatch__label">
+						SWATCH
+						<span className="smile-icon">
+							<Smile />
+						</span>
+					</h3>
 					<h3 className="color-swatch__hex">{hex.substring(1).toUpperCase()}</h3>
 					<h3 className="color-swatch__name">{prettyName}</h3>
 				</div>

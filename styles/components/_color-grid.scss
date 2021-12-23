@@ -13,23 +13,19 @@
     @include transition;
     flex: 1 1 180px;
     justify-content: center;
-    background-color: var(--white);
+    background-color: var(--ui-bg-alt);
     margin: var(--margin);
     cursor: pointer;
 
     &.active {
       .color-grid__swatch {
-        border: 1px solid var(--white);
+        border: 1px solid var(--ui-bg-alt);
       }
     }
     
     &:hover {
       @include shadow-hover;
       transform: scale(1.03);
-
-      .color-grid__hex {
-        transform: translateX(0);
-      }
     }
 
     &.hidden {

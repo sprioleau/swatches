@@ -1,4 +1,13 @@
 .logo {
   height: var(--logo-height);
   padding: var(--logo-padding);
+
+  &__link {
+    display: block;
+    height: 100%;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }

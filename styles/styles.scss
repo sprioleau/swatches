@@ -1,5 +1,7 @@
 // Utils
 @import "utils/variables";
+@import "utils/light-mode";
+@import "utils/dark-mode";
 @import "utils/mixins";
 @import "utils/app";
 @import "utils/icon";
@@ -14,6 +16,7 @@
 @import "./components/main";
 @import "./components/nav";
 @import "./components/footer";
+@import "./components/toggle-switch";
 
 // Pages
 @import "./pages/color-page";

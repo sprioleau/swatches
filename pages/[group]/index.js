@@ -1,14 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { getColorsData } from "../../utils";
+import { getColorsData, lowerToSentenceCase } from "../../utils";
 import { ColorGrid, PageWrapper } from "../../components";
 import getColorsByGroup from "../../utils/getColorsByGroup";
 
 const GroupsPage = ({ groupColors, group }) => {
+	const groupTitle = lowerToSentenceCase(group);
+
 	return (
-		<PageWrapper pageTitle={group} colorGroup={group}>
+		<PageWrapper pageTitle={groupTitle} colorGroup={group}>
 			<div className="group-page">
-				<h1 className="group-page__title">{group}</h1>
+				<h1 className="group-page__title">{groupTitle}</h1>
 				<ColorGrid colors={groupColors} includeBackButton />
 			</div>
 		</PageWrapper>

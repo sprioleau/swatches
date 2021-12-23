@@ -4,25 +4,24 @@ import axios from "axios";
 import Image from "next/image";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { Blurhash } from "react-blurhash";
-import pickRandom from "../../utils/pickRandom";
 import CONFIG from "../../config";
-import { getColorsData, getRandomQueryColor } from "../../utils";
-import { Logo, PageWrapper } from "../../components";
-import useWindowSize from "../../hooks/useWindowSize";
+import { getColorsData, getRandomQueryColor, pickRandom } from "../../utils";
+import { PageWrapper, Smile } from "../../components";
+import lowerToSentnceCase from "../../utils/lowerToSentenceCase";
 
 const ColorPage = ({ photo, color }) => {
 	const [isLoading, setIsLoading] = React.useState(true);
-
-	const { windowSize } = useWindowSize();
 
 	const handleSetIsLoading = (loading) => setIsLoading(loading);
 
 	const { prettyName, colorGroup, hex, rgbString } = color;
 
+	const groupTitle = lowerToSentnceCase(colorGroup);
+
 	const appName = "Swatches";
 
 	return (
-		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup} displayNav={windowSize <= 750} displayFooter={false}>
+		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup}>
 			<div className="color-page" style={{ backgroundColor: color.hex }}>
 				<div className="color-page__image-wrapper">
 					<p className="color-page__attribution">
@@ -45,13 +44,13 @@ const ColorPage = ({ photo, color }) => {
 				<div className="color-page__details">
 					<div className="color-page__details-wrapper">
 						<header className="color-page__header">
-							<h1 className="color-page__name">{prettyName}</h1>
-							<h2 className="color-page__color-group">Collection: {colorGroup}</h2>
-							{windowSize > 750 && (
-								<div className="color-page__logo">
-									<Logo />
-								</div>
-							)}
+							<h1 className="color-page__name">
+								{prettyName}
+								<span className="smile-icon">
+									<Smile />
+								</span>
+							</h1>
+							<h2 className="color-page__color-group">Collection: {groupTitle}</h2>
 						</header>
 						<ul className="color-page__color-values">
 							<li className="color-page__color-value">
@@ -64,7 +63,7 @@ const ColorPage = ({ photo, color }) => {
 							</li>
 						</ul>
 						<div className="button-row">
-							<Link href="/">
+							<Link href="/" passHref>
 								<a className="color-page__link">
 									<span className="icon">
 										<BsArrowLeft />
@@ -72,9 +71,9 @@ const ColorPage = ({ photo, color }) => {
 									<span>All colors</span>
 								</a>
 							</Link>
-							<Link href={`/${colorGroup}`}>
+							<Link href={`/${colorGroup}`} passHref>
 								<a className="color-page__link">
-									<span>{colorGroup}</span>
+									<span>{groupTitle}</span>
 									<span className="icon">
 										<BsArrowRight />
 									</span>

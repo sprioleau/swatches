@@ -31,19 +31,14 @@ body,
 }
 
 body {
+  @include ff-body;
   @include transition(background-color, 0.5s);
   height: 100%;
-  background-color: var(--ui-bg);
-  color: var(--ui-text);
-  counter-reset: nav-link section;
-  font-family: "Helvetica Neue", sans-serif;
 }
 
 p {
   max-width: 50ch;
-  line-height: 1.8;
   font-size: 1rem;
-  // margin-bottom: 1rem;
 }
 
 img {
@@ -105,4 +100,10 @@ a, .a {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+}
+
+[data-theme] {
+  @include transition;
 }

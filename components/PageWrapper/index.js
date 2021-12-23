@@ -1,18 +1,24 @@
 import Head from "next/head";
 import React from "react";
+import { useDarkMode } from "next-dark-mode";
 import Nav from "../Nav";
 import Footer from "../Footer";
 
-const PageWrapper = ({ pageTitle, colorGroup, displayNav = true, displayFooter = true, children }) => {
+const PageWrapper = ({ pageTitle, colorGroup, children }) => {
+	const { darkModeActive } = useDarkMode();
+	const theme = darkModeActive ? "dark" : "light";
+
 	return (
 		<>
 			<Head>
 				<title>{pageTitle}</title>
 				<link rel="icon" href={colorGroup ? `/favicons/${colorGroup}.png` : "/favicon.png"} />
 			</Head>
-			{displayNav && <Nav />}
-			<main className={`main ${!displayNav ? "hide-nav" : ""}`.trim()}>{children}</main>
-			{displayFooter && <Footer />}
+			<div className="app" data-theme={theme}>
+				<Nav />
+				<main className="main">{children}</main>
+				<Footer />
+			</div>
 		</>
 	);
 };
