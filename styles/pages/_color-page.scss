@@ -19,6 +19,18 @@
     padding: 1.5rem;
   }
 
+  &__attribution {
+    @include ff-mono;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 0.5em 2em;
+    background-color: var(--ui-bg-alt);
+
+    a {
+      font-weight: 700;
+    }
+  }
+
   &__image {
     @include shadow-large;
     width: 65%;
@@ -39,15 +51,17 @@
     }
   }
 
-  &__attribution {
-    @include ff-mono;
-    text-align: center;
-    font-size: 0.9em;
-    padding: 0.5em 2em;
-    background-color: var(--ui-bg-alt);
+  &__download-link {
+    @include transition;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;
+    opacity: 0.5;
 
-    a {
-      font-weight: 700;
+    &:hover {
+      opacity: 1;
     }
   }
 

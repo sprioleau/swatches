@@ -3,22 +3,21 @@ import Link from "next/link";
 import axios from "axios";
 import Image from "next/image";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { MdOutlineFileDownload } from "react-icons/md";
 import { Blurhash } from "react-blurhash";
 import CONFIG from "../../config";
-import { getColorsData, getRandomQueryColor, pickRandom } from "../../utils";
+import { getColorsData, getRandomQueryColor, handleIncrementDownloadCounter, pickRandom } from "../../utils";
 import { PageWrapper, Smile } from "../../components";
 import lowerToSentnceCase from "../../utils/lowerToSentenceCase";
 
 const ColorPage = ({ photo, color }) => {
+	console.log("photo:", photo);
+	const { prettyName, colorGroup, hex, rgbString } = color;
 	const [isLoading, setIsLoading] = React.useState(true);
+	const groupTitle = lowerToSentnceCase(colorGroup);
+	const appName = "Swatches";
 
 	const handleSetIsLoading = (loading) => setIsLoading(loading);
-
-	const { prettyName, colorGroup, hex, rgbString } = color;
-
-	const groupTitle = lowerToSentnceCase(colorGroup);
-
-	const appName = "Swatches";
 
 	return (
 		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup}>
@@ -34,11 +33,21 @@ const ColorPage = ({ photo, color }) => {
 							<Blurhash hash={photo.blur_hash} width={400} height={500} resolutionX={32} resolutionY={32} punch={1} />
 						)}
 						<Image
-							src={photo.urls.regular}
+							src={photo.urls.full}
 							alt={photo.alt_description}
 							layout="fill"
 							onLoadingComplete={() => handleSetIsLoading(false)}
 						/>
+						<a
+							href={photo.urls.regular}
+							download
+							target="_blank"
+							onClick={() => handleIncrementDownloadCounter(photo)}
+							className="color-page__download-link"
+							rel="noreferrer"
+						>
+							<MdOutlineFileDownload />
+						</a>
 					</div>
 				</div>
 				<div className="color-page__details">
