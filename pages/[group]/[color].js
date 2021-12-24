@@ -27,30 +27,41 @@ const ColorPage = ({ photo, color }) => {
 						<a href={`${photo.user.links.html}?utm_source=${appName}&utm_medium=referral`}>{photo.user.name}</a> on{" "}
 						<a href={`https://unsplash.com/?utm_source=${appName}&utm_medium=referral`}>Unsplash</a>
 					</p>
-					<div className="color-page__image">
-						{isLoading && (
-							<Blurhash hash={photo.blur_hash} width={400} height={500} resolutionX={32} resolutionY={32} punch={1} />
-						)}
-						<Image
-							src={photo.urls.full}
-							alt={photo.alt_description}
-							layout="fill"
-							onLoadingComplete={() => handleSetIsLoading(false)}
-						/>
-						<a
-							href={photo.urls.regular}
-							download
-							target="_blank"
-							onClick={() => handleIncrementDownloadCounter(photo)}
-							className="color-page__download-link"
-							rel="noreferrer"
-						>
-							<MdOutlineFileDownload />
-						</a>
+					<div className="color-page__image-shell-wrapper">
+						<div className="color-page__image-shell">
+							<div className="color-page__image">
+								{isLoading && (
+									<Blurhash
+										hash={photo.blur_hash}
+										width={400}
+										height={500}
+										resolutionX={32}
+										resolutionY={32}
+										punch={1}
+									/>
+								)}
+								<Image
+									src={photo.urls.full}
+									alt={photo.alt_description}
+									layout="fill"
+									onLoadingComplete={() => handleSetIsLoading(false)}
+								/>
+								<a
+									href={photo.urls.regular}
+									download
+									target="_blank"
+									onClick={() => handleIncrementDownloadCounter(photo)}
+									className="color-page__download-link"
+									rel="noreferrer"
+								>
+									<MdOutlineFileDownload />
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div className="color-page__details">
-					<div className="color-page__details-wrapper">
+				<div className="color-page__details-wrapper">
+					<div className="color-page__details">
 						<header className="color-page__header">
 							<h1 className="color-page__name">
 								{prettyName}
@@ -63,11 +74,11 @@ const ColorPage = ({ photo, color }) => {
 						<ul className="color-page__color-values">
 							<li className="color-page__color-value">
 								<p className="color-page__value">{hex}</p>
-								<p className="color-page__label">Hex value</p>
+								<p className="color-page__label">hex</p>
 							</li>
 							<li className="color-page__color-value">
 								<p className="color-page__value">{rgbString}</p>
-								<p className="color-page__label">RGB values</p>
+								<p className="color-page__label">rgb</p>
 							</li>
 						</ul>
 						<div className="button-row">

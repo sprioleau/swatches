@@ -1,7 +1,11 @@
 .footer {
+  @include center;
   padding: var(--footer-padding);
   position: relative;
   height: var(--footer-height);
+  text-align: center;
+  width: 100%;
+  background-color: var(--ui-bg);
 
   &__text {
     @include ff-mono;

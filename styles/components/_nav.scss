@@ -10,8 +10,7 @@
   &__container {
     @include center;
     justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
+    align-items: center;
     margin: 0 2rem 0 calc(2rem - var(--logo-padding)) ;
   }
 
@@ -19,17 +18,18 @@
     @include ff-mono;
     font-size: 0.8rem;
     color: rgba(var(--ui-text-rgb), 0.8);
-    padding: 0.5rem;
     line-height: 1.2;
-    transform: translateY(-5px);
-
+    text-align: right;
+    
     a {
       color: rgba(var(--ui-text-rgb), 0.8);
-      padding: 0;
     }
   }
 
   &__main-contents-wrapper {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
