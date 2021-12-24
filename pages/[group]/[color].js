@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import axios from "axios";
 import Image from "next/image";
+import { motion as m } from "framer-motion";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { Blurhash } from "react-blurhash";
@@ -18,6 +19,17 @@ const ColorPage = ({ photo, color }) => {
 
 	const handleSetIsLoading = (loading) => setIsLoading(loading);
 
+	const variants = {
+		initial: {
+			opacity: 0,
+			translateX: 20,
+		},
+		animate: {
+			opacity: 1,
+			translateX: 0,
+		},
+	};
+
 	return (
 		<PageWrapper pageTitle={prettyName} colorGroup={colorGroup}>
 			<div className="color-page" style={{ backgroundColor: color.hex }}>
@@ -27,7 +39,11 @@ const ColorPage = ({ photo, color }) => {
 						<a href={`${photo.user.links.html}?utm_source=${appName}&utm_medium=referral`}>{photo.user.name}</a> on{" "}
 						<a href={`https://unsplash.com/?utm_source=${appName}&utm_medium=referral`}>Unsplash</a>
 					</p>
-					<div className="color-page__image-shell-wrapper">
+					<m.div
+						className="color-page__image-shell-wrapper"
+						initial={{ opacity: 0, y: -20 }}
+						animate={{ opacity: 1, y: 0 }}
+					>
 						<div className="color-page__image-shell">
 							<div className="color-page__image">
 								{isLoading && (
@@ -58,11 +74,19 @@ const ColorPage = ({ photo, color }) => {
 								</a>
 							</div>
 						</div>
-					</div>
+					</m.div>
 				</div>
 				<div className="color-page__details-wrapper">
-					<div className="color-page__details">
-						<header className="color-page__header">
+					<m.div
+						className="color-page__details"
+						initial="initial"
+						animate="animate"
+						transition={{
+							staggerChildren: 0.2,
+							delayChildren: 0.5,
+						}}
+					>
+						<m.header className="color-page__header" variants={variants}>
 							<h1 className="color-page__name">
 								{prettyName}
 								<span className="smile-icon">
@@ -70,8 +94,8 @@ const ColorPage = ({ photo, color }) => {
 								</span>
 							</h1>
 							<h2 className="color-page__color-group">Collection: {groupTitle}</h2>
-						</header>
-						<ul className="color-page__color-values">
+						</m.header>
+						<m.ul className="color-page__color-values" variants={variants}>
 							<li className="color-page__color-value">
 								<p className="color-page__value">{hex}</p>
 								<p className="color-page__label">hex</p>
@@ -80,8 +104,8 @@ const ColorPage = ({ photo, color }) => {
 								<p className="color-page__value">{rgbString}</p>
 								<p className="color-page__label">rgb</p>
 							</li>
-						</ul>
-						<div className="button-row">
+						</m.ul>
+						<m.div className="button-row" variants={variants}>
 							<Link href="/" passHref>
 								<a className="color-page__link">
 									<span className="icon">
@@ -98,8 +122,8 @@ const ColorPage = ({ photo, color }) => {
 									</span>
 								</a>
 							</Link>
-						</div>
-					</div>
+						</m.div>
+					</m.div>
 				</div>
 			</div>
 		</PageWrapper>

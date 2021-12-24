@@ -45,10 +45,10 @@
     background-color: var(--ui-bg-alt);
     position: relative;
     border: clamp(0.5rem, 1vw, 0.75rem) solid var(--ui-bg-alt);
+    @include shadow-large;
   }
   
   &__image {
-    @include shadow-large;
     user-select: none;
     position: absolute;
     top: 0;

@@ -1,14 +1,16 @@
 .color-swatch {
-  height: 100%;
-
   &__link:hover &__hex {
     transform: translateX(0);
-
+    
     &::before {
       opacity: 1;
     }
   }
 
+  &__animation-wrapper {
+    @include shadow;
+  }
+  
   &__swatch {
     --aspect-ratio: 1 / 1;
     padding-top: calc(var(--aspect-ratio) * 100%);
@@ -21,6 +23,7 @@
     flex-direction: column;
     padding: 1rem;
     position: relative;
+    background-color: var(--ui-bg-alt);
   }
   
   &__label {

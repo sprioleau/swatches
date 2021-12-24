@@ -1,4 +1,7 @@
 .color-group {
+  @include shadow;
+  background-color: var(--ui-bg-alt);
+
   &__label {
     font-size: 2rem;
     font-weight: 700;
@@ -15,13 +18,11 @@
     padding: 1.5rem;
   }
   
-  .arrow {
-    font-size: 3rem;
+  .arrow__icon {
     align-self: flex-end;
 
     &.back {
       align-self: flex-start;
-      transform: rotate(180deg);
     }
   }
 

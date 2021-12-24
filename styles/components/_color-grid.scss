@@ -9,11 +9,9 @@
   }
   
   &__list-item {
-    @include shadow;
     @include transition;
     flex: 1 1 180px;
     justify-content: center;
-    background-color: var(--ui-bg-alt);
     margin: var(--margin);
     cursor: pointer;
 

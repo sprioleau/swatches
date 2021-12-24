@@ -1,0 +1,13 @@
+.arrow {
+  @include center;
+  justify-content: flex-end;
+  font-size: 3rem;
+
+  &.back {
+    justify-content: flex-start;
+  }
+
+  &.back &__icon {
+    transform: rotate(180deg);
+  }
+}
