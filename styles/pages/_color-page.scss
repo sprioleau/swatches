@@ -23,7 +23,7 @@
     text-align: center;
     font-size: 0.9em;
     padding: 0.5em 2em;
-    background-color: var(--ui-bg-alt);
+    background-color: rgba(var(--ui-bg-alt-rgb), 0.9);
 
     a {
       font-weight: 700;
@@ -73,9 +73,10 @@
     padding: 0.5rem;
     opacity: 0.5;
     color: #fff;
-
+    
     &:hover {
       opacity: 1;
+      color: #fff;
     }
   }
 

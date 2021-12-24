@@ -163,7 +163,7 @@ export const getStaticProps = async ({ params }) => {
 
 	const isDevelopment = process.env.NODE_ENV === "development";
 
-	const requestUrl = isDevelopment && !CONFIG.USE_API ? "http://localhost:3000/api/getSimilarImages" : url.href;
+	const requestUrl = isDevelopment && !CONFIG.USE_API ? "http://localhost:3000/api/get_test_images" : url.href;
 
 	const { data: photos } = await axios.get(requestUrl);
 
