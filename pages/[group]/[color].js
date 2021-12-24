@@ -157,6 +157,7 @@ export const getStaticProps = async ({ params }) => {
 
 	url.searchParams.append("query", "color");
 	url.searchParams.append("content_filter", "high");
+	url.searchParams.append("per_page", 20);
 	url.searchParams.append("color", imageColor);
 	url.searchParams.append("orientation", "portrait");
 	url.searchParams.append("client_id", process.env.UNSPLASH_API_ACCESS_KEY);
