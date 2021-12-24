@@ -44,11 +44,8 @@ const getColorsData = async () => {
 				});
 		});
 
-		// res.status(200).json(colors);
-
 		return colors;
 	} catch (error) {
-		// res.status(500).json(error);
 		return error;
 	}
 };
