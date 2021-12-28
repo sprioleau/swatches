@@ -15,8 +15,6 @@ const ColorPage = ({ photo, color }) => {
 	const groupTitle = lowerToSentnceCase(colorGroup);
 	const appName = "Swatches";
 
-	// const handleSetIsLoading = (loading) => setIsLoading(loading);
-
 	const variants = {
 		initial: {
 			opacity: 0,
@@ -44,7 +42,7 @@ const ColorPage = ({ photo, color }) => {
 					>
 						<div className="color-page__image-shell">
 							<div className="color-page__image">
-								<img src={photo.urls.full} alt={photo.alt_description} />
+								<img src={photo.urls.regular} alt={photo.alt_description} />
 								<a
 									href={photo.urls.regular}
 									download
