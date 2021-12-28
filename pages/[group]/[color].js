@@ -1,11 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
 import axios from "axios";
-import Image from "next/image";
 import { motion as m } from "framer-motion";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { MdOutlineFileDownload } from "react-icons/md";
-import { Blurhash } from "react-blurhash";
 import CONFIG from "../../config";
 import { getColorsData, getRandomQueryColor, handleIncrementDownloadCounter, pickRandom } from "../../utils";
 import { PageWrapper, Smile } from "../../components";
@@ -13,11 +12,10 @@ import lowerToSentnceCase from "../../utils/lowerToSentenceCase";
 
 const ColorPage = ({ photo, color }) => {
 	const { prettyName, colorGroup, hex, rgbString } = color;
-	const [isLoading, setIsLoading] = React.useState(true);
 	const groupTitle = lowerToSentnceCase(colorGroup);
 	const appName = "Swatches";
 
-	const handleSetIsLoading = (loading) => setIsLoading(loading);
+	// const handleSetIsLoading = (loading) => setIsLoading(loading);
 
 	const variants = {
 		initial: {
@@ -46,22 +44,7 @@ const ColorPage = ({ photo, color }) => {
 					>
 						<div className="color-page__image-shell">
 							<div className="color-page__image">
-								{isLoading && (
-									<Blurhash
-										hash={photo.blur_hash}
-										width={400}
-										height={500}
-										resolutionX={32}
-										resolutionY={32}
-										punch={1}
-									/>
-								)}
-								<Image
-									src={photo.urls.full}
-									alt={photo.alt_description}
-									layout="fill"
-									onLoadingComplete={() => handleSetIsLoading(false)}
-								/>
+								<img src={photo.urls.full} alt={photo.alt_description} />
 								<a
 									href={photo.urls.regular}
 									download
