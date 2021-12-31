@@ -9,6 +9,7 @@ import CONFIG from "../../config";
 import { getColorsData, getRandomQueryColor, handleIncrementDownloadCounter, pickRandom } from "../../utils";
 import { PageWrapper, Smile } from "../../components";
 import lowerToSentnceCase from "../../utils/lowerToSentenceCase";
+import getUnsplashRequestUrl from "../../libs/unsplash";
 
 const ColorPage = ({ photo, color }) => {
 	const { prettyName, colorGroup, hex, rgbString } = color;
@@ -131,21 +132,14 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ params }) => {
 	const colors = await getColorsData();
 	const { color } = params;
-
 	const imageColor = getRandomQueryColor(colors, color);
-	const API_ROOT_URL = "https://api.unsplash.com/search/photos/";
-	const url = new URL(API_ROOT_URL);
-
-	url.searchParams.append("query", "color");
-	url.searchParams.append("content_filter", "high");
-	url.searchParams.append("per_page", 20);
-	url.searchParams.append("color", imageColor);
-	url.searchParams.append("orientation", "portrait");
-	url.searchParams.append("client_id", process.env.UNSPLASH_API_ACCESS_KEY);
-
+	const unsplashRequestUrl = getUnsplashRequestUrl(imageColor);
 	const isDevelopment = process.env.NODE_ENV === "development";
 
-	const requestUrl = isDevelopment && !CONFIG.USE_API ? "http://localhost:3000/api/get_test_images" : url.href;
+	// prettier-ignore
+	const requestUrl = isDevelopment && !CONFIG.USE_API
+		? "http://localhost:3000/api/get_test_images"
+		: unsplashRequestUrl;
 
 	const { data: photos } = await axios.get(requestUrl);
 
