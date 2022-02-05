@@ -63,7 +63,6 @@ npm run dev
 **San'Quan Prioleau**
 
 - [Profile][github-url]
-- [Email][email]
 - [Website][website]
 
 ## 🎗 Support
