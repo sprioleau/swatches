@@ -1,34 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Social Card][social-card-url]
 
-## Getting Started
+![Vercel Status](https://img.shields.io/github/deployments/sprioleau/swatches/production?label=vercel&logo=vercel&style=for-the-badge)
 
-First, run the development server:
+# Personal Website of San'Quan Prioleau
+
+San'Quan Prioleau is a frontend web developer with an eye for good design, who loves combining ideas to create new things.
+
+## 🔗 Links
+
+- 🚀 Deployed at [html-swatches.vercel.app][deployed-url]
+
+## Screenshots
+
+![Homepage Screenshot][homepage-screenshot-url] 
+
+![Color Page Screenshot][color-page-screenshot-url] 
+
+_Screenshots via [Pretty Page](https://prettypage.vercel.app/)_
+
+## 💿 Installation
+
+Clone this repo
+
+```bash
+git clone https://github.com/sprioleau/swatches.git
+```
+
+Install via npm
+
+```bash
+npm install
+```
+
+Run developemnt server
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Built With
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+| Technology            | Used For                          |
+| :-------------------- | :-------------------------------- |
+| JavaScript            | -                                 |
+| Next.js               | Static site generation            |
+| Unsplash API          | High-quality images               |
+| Vercel                | Hosting                           |
+| Cheerio               | DOM parsing                       |
+| Framer Motion         | Animations                        |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## ✨ Features
+- [x] Dom parsing (web scraping) 
+- [x] Static site generation
+- [x] Dark mode toggle
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## ⬆️ Future Updates
 
-## Learn More
+- [ ] Add page transitions 
 
-To learn more about Next.js, take a look at the following resources:
+## 👨🏾‍💻 Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**San'Quan Prioleau**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Profile][github-url]
+- [Email][email]
+- [Website][website]
 
-## Deploy on Vercel
+## 🎗 Support
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Issues, and feature requests are welcome!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Give a ⭐️ if you like this project!
+
+## Acknowledgements
+
+- [Unsplash.com](https://unsplash.com/)
+
+<!-- Author Details -->
+[github-url]: https://github.com/spriolau "San'Quan Prioleau on Github"
+[website]: https://sprioleau.dev "San'Quan Prioleau's personal website"
+[headshot_url]: https://avatars.githubusercontent.com/u/49278940?v=4 "San'Quan Prioleau headshot"
+
+<!-- Project Details -->
+[deployed-url]: https://html-swatches.vercel.app
+[social-card-url]: https://html-swatches.vercel.app/images/social-card.png "Social Card"
+[homepage-screenshot-url]: https://html-swatches.vercel.app/images/homepage.png "Homepage Screenshot"
+[color-page-screenshot-url]: https://html-swatches.vercel.app/images/color-page.png "Color Page Screenshot"

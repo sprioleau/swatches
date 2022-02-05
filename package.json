@@ -1,6 +1,19 @@
 {
-	"name": "css-swatches",
+	"name": "@sprioleau/html-swatches",
 	"private": true,
+	"description": "The most beautiful way to see HTML colors in context.",
+	"author": "San'Quan Prioleau <sq.prioleau@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sprioleau/swatches.git"
+	},
+	"keywords": [
+		"HTML",
+		"colors",
+		"swatches"
+	],
+	"contributors": [],
+	"homepage": "https://html-swatches.vercel.app",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
