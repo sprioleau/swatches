@@ -2,9 +2,9 @@
 
 ![Vercel Status](https://img.shields.io/github/deployments/sprioleau/swatches/production?label=vercel&logo=vercel&style=for-the-badge)
 
-# Personal Website of San'Quan Prioleau
+# HTML Swatches
 
-San'Quan Prioleau is a frontend web developer with an eye for good design, who loves combining ideas to create new things.
+The most beautiful way to see colors in context. This project is a reference for HTML colors (viewed as Pantone-like swatches). It combines Next.js static site generation with the Unsplash API to bring images that match the selected swatch.
 
 ## 🔗 Links
 
