@@ -64,6 +64,7 @@ npm run dev
 
 - [Profile][github-url]
 - [Website][website]
+- [LinkedIn][linkedin]
 
 ## 🎗 Support
 
@@ -78,6 +79,7 @@ Give a ⭐️ if you like this project!
 <!-- Author Details -->
 [github-url]: https://github.com/spriolau "San'Quan Prioleau on Github"
 [website]: https://sprioleau.dev "San'Quan Prioleau's personal website"
+[linkedin]: https://www.linkedin.com/in/sanquanprioleau/
 [headshot_url]: https://avatars.githubusercontent.com/u/49278940?v=4 "San'Quan Prioleau headshot"
 
 <!-- Project Details -->
