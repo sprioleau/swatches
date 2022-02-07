@@ -84,6 +84,6 @@ Give a ⭐️ if you like this project!
 
 <!-- Project Details -->
 [deployed-url]: https://html-swatches.vercel.app
-[social-card-url]: https://html-swatches.vercel.app/images/social-card.png "Social Card"
+[social-card-url]: https://html-swatches.vercel.app/social-card.png "Social Card"
 [homepage-screenshot-url]: https://html-swatches.vercel.app/images/homepage.png "Homepage Screenshot"
 [color-page-screenshot-url]: https://html-swatches.vercel.app/images/color-page.png "Color Page Screenshot"
